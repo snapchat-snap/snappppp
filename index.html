@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Email Sender</title>
+</head>
+
+<body style="font-family:Arial;text-align:center;margin-top:100px;">
+
+<h2>Send Verification Email</h2>
+
+<input type="email" id="email" placeholder="Enter Email">
+
+<br><br>
+
+<button onclick="sendEmail()">Send Email</button>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+
+(function(){
+emailjs.init("EMkYTpSFc4aGDtYyE");
+})();
+
+function sendEmail(){
+
+var email = document.getElementById("email").value;
+
+emailjs.send("snap.chat","template_xeh3qse",{
+email: email,
+username: "anshu.sahu380"
+})
+
+.then(function(response){
+alert("Email Sent Successfully");
+})
+
+.catch(function(error){
+alert("Error: " + JSON.stringify(error));
+});
+
+}
+
+</script>
+
+</body>
+</html>

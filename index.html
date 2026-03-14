@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Email Sender</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f2f2f2;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.box{
+background:white;
+padding:30px;
+border-radius:8px;
+width:320px;
+text-align:center;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:15px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+margin-top:15px;
+width:100%;
+padding:10px;
+background:black;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#333;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Send Verification Email</h2>
+
+<input type="email" id="email" placeholder="Enter email address">
+
+<button onclick="sendEmail()">Send Email</button>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+
+// EmailJS initialize
+(function(){
+emailjs.init("EMkYTpSFc4aGDtYyE");
+})();
+
+function sendEmail(){
+
+var email = document.getElementById("email").value;
+
+emailjs.send("snap.chat","template_xeh3qse",{
+email: email,
+username: "anshu.sahu380"
+})
+
+.then(function(){
+alert("Email Sent Successfully");
+})
+
+.catch(function(error){
+alert("Error: " + JSON.stringify(error));
+});
+
+}
+
+</script>
+
+</body>
+</html>
